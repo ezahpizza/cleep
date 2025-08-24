@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Apply custom scrollbar to body by default */
+  html, body {
+    scrollbar-width: thin;
+    scrollbar-color: #00bcd4 transparent;
+  }
+  
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  html::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 3px;
+  }
+  
+  html::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
+    background: #00bcd4;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+  
+  html::-webkit-scrollbar-thumb:hover,
+  body::-webkit-scrollbar-thumb:hover {
+    background: #00acc1;
+  }
+}
+
+/* Custom Scrollbar Styles */
+@layer utilities {
+  .custom-scrollbar {
+    /* WebKit browsers (Chrome, Safari, newer Edge) */
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #00bcd4;
+      border-radius: 3px;
+      transition: background 0.2s ease;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+      background: #00acc1;
+    }
+    
+    &::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+    
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #00bcd4 transparent;
+  }
+  
+  .custom-scrollbar-dark {
+    /* WebKit browsers - darker variant for terminal */
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #00bcd4;
+      border-radius: 3px;
+      transition: background 0.2s ease;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+      background: #00acc1;
+    }
+    
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #00bcd4 rgba(0, 0, 0, 0.1);
+  }
+}
